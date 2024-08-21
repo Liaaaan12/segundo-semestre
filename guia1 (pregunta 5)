@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definir las funciones para el metro y el bus
+def f(t):
+    return 0.4 * t
+
+def g(t):
+    return 0.3 * t
+
+# Definir el rango de tiempo (0 a 60 minutos)
+t = np.linspace(0, 60, 1000)
+d_metro = f(t)
+d_bus = g(t)
+
+# grafico
+plt.figure(figsize=(10, 10))
+plt.plot(t, d_metro, label='Distancia recorrida en metro')
+plt.plot(t, d_bus, label='Distancia recorrida en bus')
+plt.xlabel('Tiempo transcurrido (minutos)')
+plt.ylabel('Distancia recorrida (kilómetros)')
+plt.title('Distancia recorrida en función del tiempo para metro y bus')
+plt.grid(True)
+plt.legend()
+plt.show()
