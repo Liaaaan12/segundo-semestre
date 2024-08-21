@@ -1,0 +1,45 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definir la función para calcular el largo del cable en kilómetros
+def largo_cable(t):
+    return 1.85 * t
+
+# Definir la función para convertir kilómetros a metros
+def metros_cable(t):
+    return largo_cable(t) * 1000
+
+# Definir la función para calcular el tiempo necesario para instalar una longitud dada
+def horas_para_largo(largo_km):
+    return largo_km / 1.85
+
+# Datos proporcionados
+longitud_total = 6600  # en kilómetros
+tiempo_total = longitud_total / 1.85
+
+# Graficar la función
+t = np.linspace(0, tiempo_total, 1000)
+L = largo_cable(t)
+
+plt.figure(figsize=(10, 6))
+plt.plot(t, L, label='Largo del cable instalado')
+plt.xlabel('Tiempo transcurrido (horas)')
+plt.ylabel('Largo del cable instalado (km)')
+plt.title('Largo del cable instalado en función del tiempo')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# Calcular los metros de cable instalados para 148 y 2300 horas
+metros_148_horas = metros_cable(148)
+metros_2300_horas = metros_cable(2300)
+
+print(f"Metros de cable instalado en 148 horas: {metros_148_horas} metros")
+print(f"Metros de cable instalado en 2300 horas: {metros_2300_horas} metros")
+
+# Calcular las horas necesarias para instalar 3480 kilómetros
+horas_3480_km = horas_para_largo(3480)
+print(f"Horas necesarias para instalar 3480 kilómetros: {horas_3480_km} horas")
+
+# Calcular el tiempo total para completar la obra
+print(f"Tiempo total para completar la obra: {tiempo_total} horas")
